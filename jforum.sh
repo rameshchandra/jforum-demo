@@ -14,7 +14,7 @@ TOMCAT_TGZ=${CATALINA_HOME}.tar.gz
 TOMCAT_PORT=8100
 setup_tomcat() {
     if [ ! -d $CATALINA_HOME ]; then
-	tar -C $ROOT -zxf $TOMCAT_TGZ
+	tar -C $ROOT -zxf $TOMCAT_TGZ || exit 1
 	
         ## change tomcat port
 	sed -i'' -e "s/8080/$TOMCAT_PORT/g" $CATALINA_HOME/conf/server.xml
@@ -64,7 +64,7 @@ AGENT_JAR=$ROOT/agent/agent-bootstrap-0.0.1-SNAPSHOT.jar
 
 setup_nerati_agent() {
     ## script to load agent jar and configure agent port
-    echo >> $CATALINA_HOME/bin/setenv.sh <<EOF
+    cat > $CATALINA_HOME/bin/setenv.sh <<EOF
 #!/bin/bash
 
 CATALINA_OPTS="$CATALINA_OPTS -Dcom.nerati.agent.port=$AGENT_PORT -javaagent:$AGENT_JAR"
