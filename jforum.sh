@@ -1,6 +1,7 @@
 #!/bin/bash -x
 
 ROOT=$(dirname $(readlink -f $0))
+ROOT=$(dirname $ROOT)
 
 export CATALINA_HOME=$ROOT/apache-tomcat-6.0.36
 export CATALINA_PID=$CATALINA_HOME/tomcat.pid
@@ -49,4 +50,5 @@ stop_tomcat
 backup_jforum_cfg
 deploy_jforum
 restore_jforum_cfg
-$CATALINA_SH start
+$CATALINA_SH run     ## to run in foreground
+#$CATALINA_SH start  ## to run in background
