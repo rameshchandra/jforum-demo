@@ -10,10 +10,14 @@ DIST=distribution-0.0.1-SNAPSHOT
 
 rm -rf $CTRL_DIR
 mkdir -p $CTRL_DIR
-cp $ROOT/../filterer/controller/distribution/target/$DIST.tar.gz $CTRL_DIR
-tar -C $CTRL_DIR -zxf $CTRL_DIR/$DIST.tar.gz
+
+if [ X"$OS" = X"Windows_NT" ]; then
+    (cd $CTRL_DIR; unzip $ROOT/../filterer/controller/distribution/target/$DIST.zip)
+else
+    (cd $CTRL_DIR; tar -zxf $ROOT/../filterer/controller/distribution/target/$DIST.tar.gz)
+fi
+
 cp -r $ROOT/../filterer-web-client/mockserver/src/static/ $CTRL_DIR/$DIST/
 
 cd $CTRL_DIR/$DIST/
 java -Dcom.nerati.filter.controller.statics.externalDir=$CTRL_DIR/$DIST/static -jar bin/felix.jar
-
