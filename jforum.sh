@@ -2,7 +2,7 @@
 
 ## Run jforum
 
-ROOT=$(dirname $(readlink -f $0))
+ROOT=$(cd $(dirname $0); pwd)
 ROOT=$(dirname $ROOT)
 
 export CATALINA_HOME=$ROOT/apache-tomcat-6.0.36

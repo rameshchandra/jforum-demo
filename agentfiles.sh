@@ -3,7 +3,7 @@
 ## Copy agent jar files from build dir and create exclusion file for
 ## jforum
 
-ROOT=$(dirname $(readlink -f $0))
+ROOT=$(cd $(dirname $0); pwd)
 ROOT=$(dirname $ROOT)
 
 mkdir -p $ROOT/agent

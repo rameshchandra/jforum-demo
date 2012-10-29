@@ -2,7 +2,7 @@
 
 ## Run the controller
 
-ROOT=$(dirname $(readlink -f $0))
+ROOT=$(cd $(dirname $0); pwd)
 ROOT=$(dirname $ROOT)
 
 CTRL_DIR=$ROOT/controller

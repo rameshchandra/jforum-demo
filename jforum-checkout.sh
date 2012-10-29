@@ -2,7 +2,7 @@
 
 ## checkout jforum repo from google code
 
-ROOT=$(dirname $(readlink -f $0))
+ROOT=$(cd $(dirname $0); pwd)
 ROOT=$(dirname $ROOT)
 
 cd $ROOT
