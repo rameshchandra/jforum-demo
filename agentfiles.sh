@@ -7,8 +7,8 @@ THISDIR=$(cd $(dirname $0); pwd)
 ROOT=$(dirname $THISDIR)
 
 mkdir -p $ROOT/agent
-cp -f $ROOT/../filterer/agent/bootstrap/target/agent-bootstrap-0.0.1-SNAPSHOT.jar $ROOT/agent
-cp -f $ROOT/../filterer/agent/main/target/agent-main-0.0.1-SNAPSHOT.jar $ROOT/agent
+cp -f $ROOT/filterer/agent/bootstrap/target/agent-bootstrap-0.0.1-SNAPSHOT.jar $ROOT/agent
+cp -f $ROOT/filterer/agent/main/target/agent-main-0.0.1-SNAPSHOT.jar $ROOT/agent
 cat >> $ROOT/agent/excludedClasses.txt <<EOF
 java
 javax
