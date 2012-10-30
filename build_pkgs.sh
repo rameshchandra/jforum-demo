@@ -11,7 +11,7 @@ for repo in filterer filterer-web-client; do
 done
 
 ## build filterer packages
-(cd $ROOT/filterer; mvn clean package -Daven.test.skip=true) || exit 1
+(cd $ROOT/filterer; mvn clean package -Dmaven.test.skip=true) || exit 1
 
 ## main branch of filterer-web-client is webclient
 (cd $ROOT/filterer-web-client; git checkout webclient) || exit 1
