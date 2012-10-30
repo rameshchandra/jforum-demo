@@ -70,7 +70,12 @@ deploy_jforum() {
 }
 
 AGENT_PORT=8200
-AGENT_JAR=$ROOT/agent/agent-bootstrap-0.0.1-SNAPSHOT.jar
+
+if [ X"$OS" = X"Windows_NT" ]; then
+    AGENT_JAR="`echo $ROOT/agent/agent-bootstrap-0.0.1-SNAPSHOT.jar | sed -e 's#^/c/#C:/#'`"
+else
+    AGENT_JAR=$ROOT/agent/agent-bootstrap-0.0.1-SNAPSHOT.jar
+fi
 
 setup_nerati_agent() {
     ## script to load agent jar and configure agent port
