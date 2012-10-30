@@ -1,0 +1,13 @@
+Index: src/main/java/net/jforum/view/forum/PostAction.java
+===================================================================
+--- src/main/java/net/jforum/view/forum/PostAction.java	(revision 215)
++++ src/main/java/net/jforum/view/forum/PostAction.java	(revision 216)
+@@ -464,7 +464,7 @@
+ 			if (topic == null) {
+ 				topic = DataAccessDriver.getInstance().newTopicDAO().selectRaw(topicId);
+ 				
+-				if (topic == null) {
++				if (topic.getId() == 0) {
+ 					throw new ForumException("Could not find a topic with id #" + topicId);
+ 				}
+ 			}

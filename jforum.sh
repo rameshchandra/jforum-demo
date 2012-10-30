@@ -64,9 +64,9 @@ backup_jforum_cfg() {
 
 deploy_jforum() {
     rm -rf $JFORUM_APPDIR $WEBAPPSDIR/jforum*.war
-    cp $JFORUM_SRCDIR/target/jforum.war $WEBAPPSDIR
+    cp $THISDIR/jforum-wars/jforum_v1.war $WEBAPPSDIR/jforum.war
     mkdir $JFORUM_APPDIR
-    (cd $JFORUM_APPDIR; unzip $WEBAPPSDIR/jforum.war)
+    (cd $JFORUM_APPDIR; unzip $WEBAPPSDIR/jforum.war) || exit 1
 }
 
 AGENT_PORT=8200
