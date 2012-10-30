@@ -2,8 +2,8 @@
 
 ## Run the controller
 
-ROOT=$(cd $(dirname $0); pwd)
-ROOT=$(dirname $ROOT)
+THISDIR=$(cd $(dirname $0); pwd)
+ROOT=$(dirname $THISDIR)
 
 CTRL_DIR=$ROOT/controller
 DIST=distribution-0.0.1-SNAPSHOT
