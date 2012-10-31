@@ -67,10 +67,6 @@ deploy_jforum() {
     cp $THISDIR/jforum-wars/jforum_v1.war $WEBAPPSDIR/jforum.war
     mkdir $JFORUM_APPDIR
     (cd $JFORUM_APPDIR; unzip $WEBAPPSDIR/jforum.war) || exit 1
-
-    ## turn off captchas in jforum: they are unreliable and annoying,
-    ## and will also break automation later
-    /bin/sed -i"" -re 's/(captcha\..*) = true/\1 = false/g' $JFORUM_APPDIR/WEB-INF/config/SystemGlobals.properties
 }
 
 AGENT_PORT=8200
