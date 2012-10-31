@@ -20,4 +20,4 @@ fi
 cp -r $ROOT/filterer-web-client/mockserver/src/static/ $CTRL_DIR/$DIST/
 
 cd $CTRL_DIR/$DIST/
-java -Dcom.nerati.filter.controller.statics.externalDir=$CTRL_DIR/$DIST/static -jar bin/felix.jar
+java -Xms1024m -Dcom.nerati.filter.controller.statics.externalDir=$CTRL_DIR/$DIST/static -jar bin/felix.jar
