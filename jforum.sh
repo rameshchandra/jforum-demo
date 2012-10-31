@@ -100,7 +100,7 @@ restore_jforum_cfg() {
 setup_tomcat
 stop_tomcat
 setup_nerati_agent
-backup_jforum_cfg
+#backup_jforum_cfg
 deploy_jforum
 restore_jforum_cfg
 $CATALINA_SH run     ## to run in foreground
